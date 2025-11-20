@@ -1,0 +1,615 @@
+/* ---------------------- */
+/*        HERO           */
+/* ---------------------- */
+/* ========== THEME SYSTEM ========== */
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --bg: #fdf6e3;            /* beige clair */
+    --bg-card: #ffffff;
+    --text: #333;
+    --text-light: #555;
+    --border: #e0d7c2;
+    --shadow: rgba(0,0,0,0.1);
+
+    --accent: #c1a875;
+}
+
+/* DARK MODE */
+body[data-theme="dark"] {
+    --bg: #0f0f0f;
+    --bg-card: #1a1a1a;
+    --text: #f1f1f1;
+    --text-light: #cccccc;
+    --border: #333;
+    --shadow: rgba(255,255,255,0.05);
+
+    --accent: #c9b27b; /* beige gold */
+}
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+section {
+    background: var(--bg);
+}
+
+.card, .campagne-row, .avant-apres, .hero-container {
+    border-color: var(--border);
+}
+
+h1, h2, h3 {
+    color: var(--text);
+}
+
+p, li {
+    color: var(--text-light);
+}
+
+.card-text p {
+    color: var(--text-light);
+
+}
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--bg-card);
+    color: var(--text);
+    border: 2px solid var(--border);
+    padding: 10px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 4px 10px var(--shadow);
+    transition: all .3s;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.08);
+}
+
+img {
+    border: 2px solid var(--border);
+    box-shadow: 0 6px 20px var(--shadow);
+    border-radius: 14px;
+}
+
+#hero {
+    background-color: #fdf6e3;
+    padding: 120px 20px 80px 20px;
+    height:100vh;
+}
+
+/* HEADER dans le HERO */
+.hero-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+}
+
+.hero-header .logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #333;
+}
+
+.hero-header .nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.hero-header .nav-menu a {
+    text-decoration: none;
+    color: #444;
+    font-size: 1.1em;
+    transition: .3s;
+}
+
+.hero-header .nav-menu a:hover {
+    color: #7a5c51;
+}
+
+.toggle-btn {
+    font-size: 1.4em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.2);
+}
+
+/* CONTENU HERO */
+.hero-container {
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    justify-content: center;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.hero-text p {
+    font-size: 1.8em;
+    color: #555;
+}
+
+.hero-photo-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-photo {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #e0d7c2;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    transition: .4s;
+}
+
+.hero-photo:hover {
+    transform: scale(1.05);
+}
+
+/* ---------------------- */
+/*     RESPONSIVE HERO   */
+/* ---------------------- */
+
+@media (max-width: 780px) {
+
+    .hero-header {
+        padding: 15px 25px;
+    }
+
+    .nav-menu {
+        display: none; /* On affiche que le logo + dark mode pour une version simple */
+    }
+
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        margin-top: 120px;
+        gap: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.6em;
+    }
+
+    .hero-text p {
+        font-size: 1.4em;
+    }
+
+    .hero-photo {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+
+#animated-text {
+    border-right: 3px solid #333; /* curseur */
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 25px;
+}
+
+/* SECTION */
+#avant-apres {
+    background-color: #ffffff;   /* plus propre que le beige */
+    padding: 80px 20px;
+    text-align: center;
+}
+
+#avant-apres h2 {
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #2b2b2b;
+}
+
+#avant-apres .sub {
+    font-size: 1.6em;
+    font-style: italic;
+    margin-bottom: 50px;
+    color: #7a5c51;   /* couleur élégante */
+}
+
+/* CONTAINER */
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* CARD */
+.card {
+    flex: 1;
+    max-width: 32%;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e8e6df;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+/* IMAGE */
+.card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+/* TEXTE */
+.card-caption {
+    padding: 18px 25px;
+    font-size: 1.15em;
+    color: #444;
+    text-align: left;
+    line-height: 1.5;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .cards-container {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .card {
+        max-width: 100%; /* image + texte sur toute la largeur */
+    }
+
+    .card-img {
+        height: auto;
+    }
+
+    .card-caption {
+        font-size: 1.25em;
+        text-align: center;
+    }
+}
+
+
+h3{
+    font-family:"Poppins";
+    font-style:italic;
+    font-size:30px;
+}
+
+#resultats-aov {
+    background-color: #fdf6e3; /* beige */
+    padding: 80px 20px;
+    text-align: center;
+}
+
+#resultats-aov h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.resultats-container {
+  
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Colonne gauche */
+.images-col {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;           /* un peu plus d’espace pour respirer */
+    flex: 1;
+      /* limite propre pour très grands écrans */
+}
+
+/* Images desktop + mobile fluides et grandes */
+.result-img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 2px solid #e0d7c2;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+   
+}
+
+/* Colonne droite */
+.texte-col {
+    flex: 1;
+    text-align: left;
+}
+
+.texte-col h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-style: italic;           /* italique */
+    font-family: "Playfair Display", serif; /* fancy */
+}
+
+.texte-explication {
+    font-size: 1.2em;
+    line-height: 1.7;
+    color: #555;
+}
+
+#campagnes {
+    background-color: #fdf6e3;
+    padding: 80px 20px;
+}
+
+#campagnes h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    color: #333;
+}
+
+/* --- Desktop layout --- */
+.campagne-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #e0d7c2;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Images plus grandes clean */
+.campagne-img img {
+    width: 600px;
+      /* taille idéale */
+    border-radius: 15px;
+    border: 2px solid #e0d7c2;
+    display: block;
+}
+
+/* Texte */
+.campagne-info h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.campagne-info p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.campagne-info ul {
+    padding-left: 20px;
+    color: #444;
+}
+
+.campagne-info li {
+    margin-bottom: 8px;
+}
+
+/* --- VERSION MOBILE --- */
+@media (max-width: 768px) {
+
+    .campagne-row {
+        flex-direction: column;       /* empile image + texte */
+        text-align: center;
+        padding: 20px;
+    }
+
+    .campagne-img img {
+        max-width: 320px;            /* image confortable sur mobile */
+        width: 100%;
+        height: auto;
+    }
+
+    .campagne-info h3 {
+        font-size: 1.5em;
+        margin-top: 15px;
+    }
+
+    .campagne-info ul {
+        padding-left: 0;
+        text-align: left;            /* garde les bullets lisibles */
+        margin: 0 auto;
+        max-width: 300px;
+    }
+}
+
+/* SECTION */
+#avant-apres2 {
+    background-color: #fdf6e3; /* beige */
+    padding: 70px 20px;
+    text-align: center;
+}
+
+#avant-apres2 h3 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #333;
+    font-style: italic;
+}
+
+/* CONTAINER */
+.cards-container2 {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* CARTE */
+.card2 {
+    width: 320px;              /* Taille moyenne */
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid #e0d7c2;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card2:hover {
+    transform: translateY(-8px);
+}
+
+/* IMAGE */
+.card2 .card-img {
+    width: 100%;
+    height: 620px;             /* moyen */
+    object-fit: cover;         /* garde un beau cadrage */
+    border-bottom: 2px solid #e0d7c2;
+}
+
+/* TEXTE */
+.card-text {
+    padding: 15px 18px;
+}
+
+.card-text p {
+    color: #555;
+    font-size: 1.1em;
+    margin: 0;
+}
+#campagnes {
+    background-color: #fdf6e3;
+    padding: 80px 20px;
+}
+
+#campagnes h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    color: #333;
+}
+
+.campagne-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #e0d7c2;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.campagne-img img {
+    width: 600px;
+    border-radius: 15px;
+    border: 2px solid #e0d7c2;
+}
+
+.campagne-info h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.campagne-info p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.campagne-info ul {
+    padding-left: 20px;
+    color: #444;
+}
+
+.campagne-info li {
+    margin-bottom: 8px;
+}
+/* Responsive */
+@media (max-width: 700px) {
+
+    .cards-container {
+    display: flex;
+    justify-content:center;
+    gap: 30px;        /* espace entre les cartes */
+    margin: 0 auto;
+    flex-wrap: wrap; /* empêche les cartes de passer en colonne */
+    overflow-x: auto;  /* scroll horizontal si écran trop petit */
+}
+.resultats-container {
+  
+   
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+}
+
+@media (max-width: 600px) {
+    .images-col {
+        width: 100%;
+        max-width: 100%;
+        gap: 20px;
+    }
+
+    .result-img {
+          width: 100%;
+        max-width: 350px;   /* taille confortable */
+        min-width: 280px;   /* empêche de descendre à 255px */
+        height: auto !important;
+    
+       
+    }
+}
+
+/* Très petit mobile */
+@media (max-width: 420px) {
+    .result-img {
+        border-radius: 10px;
+        box-shadow: 0 5px 14px rgba(0,0,0,0.1);
+    }
+}
